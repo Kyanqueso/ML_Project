@@ -26,7 +26,7 @@ project/
 
 ## Dataset
 
-- **Source**: UCI Steel Industry Energy Consumption dataset
+- **Source**: DAEWOO Steel Co. Ltd, Gwangyang, South Korea. The company produces several types of coils, steel plates, and iron plates. Electricity consumption data is held in a cloud-based system, and energy consumption information is stored on the website of the Korea Electric Power Corporation (pccs.kepco.go.kr), which provides daily, monthly, and annual perspectives.
 - **File**: `Steel_industry_data.csv`
 - **Shape**: 35,040 rows × 11 columns (15-minute intervals, full year 2018)
 - **Target**: `Usage_kWh`
