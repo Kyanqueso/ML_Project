@@ -1,15 +1,16 @@
-# Steel Industry Energy Consumption — MLP vs TCN
+# Steel Industry Energy Consumption — MLP vs TCN vs CUBIST
 
-Predicts 15-minute electrical energy consumption (`Usage_kWh`) in a steel plant using two neural network architectures: a **Multilayer Perceptron (MLP)** and a **Temporal Convolutional Network (TCN)**.
+Predicts 15-minute electrical energy consumption (`Usage_kWh`) in a steel plant using two neural network architectures (**MLP** and **TCN**) and a rule-based regression model (**CUBIST**).
 
 ## Results Summary
 
-| Model | MAE (kWh) | RMSE (kWh) | R²     |
-|-------|-----------|------------|--------|
-| MLP   | 1.0460    | 1.5830     | 0.9975 |
-| TCN   | 1.2380    | 1.9819     | 0.9960 |
+| Model  | MAE (kWh) | RMSE (kWh) | R²     |
+|--------|-----------|------------|--------|
+| MLP    | 1.0460    | 1.5830     | 0.9975 |
+| TCN    | 1.2380    | 1.9819     | 0.9960 |
+| CUBIST | 0.1120    | 0.3619     | 0.9999 |
 
-Both models achieve R² > 0.99. The MLP outperforms the TCN, likely because the categorical context features (load type, weekday) are already highly informative, leaving little room for temporal modelling to add value.
+CUBIST substantially outperforms both neural network models. The MLP edges out the TCN, likely because the categorical features (load type, weekday) are already highly informative on their own.
 
 ---
 
@@ -17,7 +18,8 @@ Both models achieve R² > 0.99. The MLP outperforms the TCN, likely because the 
 
 ```
 project/
-├── Project_steel_energy_mlp_vs_tcn.ipynb   # Main notebook (annotated)
+├── Project_steel_energy_mlp_vs_tcn.ipynb   # MLP vs TCN notebook (annotated)
+├── Project_CUBIST_Additional.ipynb         # CUBIST model notebook
 ├── Steel_industry_data.csv                 # Raw dataset
 └── README.md
 ```
@@ -55,13 +57,13 @@ The notebook was originally executed with:
 ### Install dependencies
 
 ```bash
-pip install tensorflow==2.10.1 scikit-learn pandas numpy matplotlib
+pip install tensorflow==2.10.1 scikit-learn pandas numpy matplotlib cubist
 ```
 
 If you are on an Apple Silicon Mac or need a newer TensorFlow:
 
 ```bash
-pip install tensorflow scikit-learn pandas numpy matplotlib
+pip install tensorflow scikit-learn pandas numpy matplotlib cubist
 ```
 
 ---
@@ -70,8 +72,9 @@ pip install tensorflow scikit-learn pandas numpy matplotlib
 
 ### 1. Clone / download the project
 
-Ensure all three files are in the same directory:
+Ensure all files are in the same directory:
 - `Project_steel_energy_mlp_vs_tcn.ipynb`
+- `Project_CUBIST_Additional.ipynb`
 - `Steel_industry_data.csv`
 
 ### 2. Launch Jupyter
