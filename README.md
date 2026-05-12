@@ -8,7 +8,7 @@ Predicts 15-minute electrical energy consumption (`Usage_kWh`) in a steel plant 
 |--------|-----------|------------|--------|
 | MLP    | 1.0460    | 1.5830     | 0.9975 |
 | TCN    | 1.2380    | 1.9819     | 0.9960 |
-| CUBIST | 0.1120    | 0.3619     | 0.9999 |
+| CUBIST | 0.1123    | 0.3625     | 0.9999 |
 
 CUBIST substantially outperforms both neural network models. The MLP edges out the TCN, likely because the categorical features (load type, weekday) are already highly informative on their own.
 
